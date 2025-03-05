@@ -3,7 +3,7 @@ import { useEvent } from 'shared/lib'
 
 const STEP = 10
 
-export const useVideoPlayer = (url: string) => {
+export const useVideoPlayer = () => {
   const rootRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
 

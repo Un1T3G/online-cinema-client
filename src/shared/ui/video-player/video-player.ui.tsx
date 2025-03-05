@@ -11,7 +11,7 @@ interface IProps {
 }
 
 export const VideoPlayer = ({ url, className }: IProps) => {
-  const { refs, video, actions, slider } = useVideoPlayer(url)
+  const { refs, video, actions, slider } = useVideoPlayer()
 
   const handleOnValueChange = (values: number[]) => {
     const value = values[0]

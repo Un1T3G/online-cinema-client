@@ -21,6 +21,7 @@ export const getServerSideProps: GetServerSideProps<IMoviePageProps> = async ({
       },
     }
   } catch (error) {
+    console.error(error)
     return {
       notFound: true,
       redirect: { destination: '/404', permanent: false },
