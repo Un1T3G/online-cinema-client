@@ -20,7 +20,7 @@ export interface UserResponse {
   email: string
   avatarUrl: string
   role: UserRole
-  hasPremium: boolean
+  isHasPremium: boolean
   authByOAuth: boolean
   createdAt: string
 }

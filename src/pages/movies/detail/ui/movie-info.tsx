@@ -59,7 +59,7 @@ export const MovieInfo = ({ movie }: IProps) => {
           {isAuth ? <MovieFavoriteButton movieId={movie.id} /> : <div />}
           <div className="flex items-center space-x-2">
             <Star className="text-yellow-500" />
-            <span>4.0</span>
+            <span>{movie.rating?.toFixed(1)}</span>
           </div>
         </div>
       </div>

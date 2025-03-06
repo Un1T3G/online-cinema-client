@@ -1,7 +1,8 @@
 'use client'
 
 import { Geist } from 'next/font/google'
-import { PropsWithChildren, useState } from 'react'
+import { useRouter } from 'next/router'
+import { PropsWithChildren, useEffect, useState } from 'react'
 import { NoSSR, cn, useIsMobile } from 'shared/lib'
 import {
   Footer,
@@ -20,7 +21,12 @@ const geistFont = Geist({
 
 export const RootLayout = ({ children }: PropsWithChildren) => {
   const isMobile = useIsMobile()
+  const router = useRouter()
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (isMobile) setOpen(false)
+  }, [isMobile, router.asPath])
 
   const Sidebar = () => {
     return (
@@ -47,7 +53,7 @@ export const RootLayout = ({ children }: PropsWithChildren) => {
     >
       <NoSSR>
         {isMobile ? (
-          <MobileSheet open={open} onClose={handleToggle}>
+          <MobileSheet open={open} onClose={handleToggle} logoSlot={<Logo />}>
             <NavigationBar />
             <SubscribeCard />
           </MobileSheet>

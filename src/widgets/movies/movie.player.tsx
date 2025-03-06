@@ -11,7 +11,7 @@ export const MoviePlayer = ({ url }: IProps) => {
   const isAuth = useSessionStore((state) => state.isAuth)
   const { data: user } = useUserProfileQuery()
 
-  if (user && user.hasPremium) {
+  if (user && user.isHasPremium) {
     return <VideoPlayer url={url} />
   }
 

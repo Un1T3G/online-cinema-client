@@ -19,9 +19,10 @@ import { toast } from 'sonner'
 
 interface IProps {
   movieId: string
+  onLeavedReview?: VoidFunction
 }
 
-export const ReviewLeaveForm = ({ movieId }: IProps) => {
+export const ReviewLeaveForm = ({ movieId, onLeavedReview }: IProps) => {
   const form = useForm<ReviewLeaveDto>({
     defaultValues: {
       rating: '1' as any,
@@ -35,6 +36,7 @@ export const ReviewLeaveForm = ({ movieId }: IProps) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['reviews', movieId] })
       toast.success('Отзыв успешно отправлен')
+      onLeavedReview?.()
     },
     onError: (error) => {
       toast.error(errorCatch(error))

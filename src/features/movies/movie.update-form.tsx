@@ -70,7 +70,14 @@ export const MovieUpdateForm = ({
   })
 
   const onSubmit = form.handleSubmit(async (data) => {
-    await mutateAsync(data).catch((error) => toast.error(errorCatch(error)))
+    await mutateAsync({
+      ...data,
+      year: Number(data.year),
+      duration: Number(data.duration),
+      videoUrl:
+        data.videoUrl ||
+        'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    }).catch((error) => toast.error(errorCatch(error)))
   })
 
   const handleGenerateSlug = () => {
@@ -113,7 +120,7 @@ export const MovieUpdateForm = ({
                 <div className="relative">
                   <FormControl>
                     <Input
-                      placeholder="jhob-whick"
+                      placeholder="jhon-whick"
                       {...field}
                       className="pr-[148px]"
                     />
@@ -152,7 +159,7 @@ export const MovieUpdateForm = ({
               <FormItem className="mb-2">
                 <FormLabel>Длительность {`(в мин)`}</FormLabel>
                 <FormControl>
-                  <Input placeholder="102" {...field} />
+                  <Input placeholder="102" type="number" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -165,7 +172,7 @@ export const MovieUpdateForm = ({
               <FormItem className="mb-2">
                 <FormLabel>Год</FormLabel>
                 <FormControl>
-                  <Input placeholder="2012" {...field} />
+                  <Input placeholder="2012" type="number" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

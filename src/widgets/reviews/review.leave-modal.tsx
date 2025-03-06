@@ -1,5 +1,6 @@
 import { ReviewLeaveForm } from 'features/reviews'
 import { X } from 'lucide-react'
+import { useState } from 'react'
 import {
   Button,
   Dialog,
@@ -16,8 +17,14 @@ interface IProps {
 }
 
 export const ReviewLeaveModal = ({ movieId, className }: IProps) => {
+  const [open, setOpen] = useState(false)
+
+  const handleOnClose = () => {
+    setOpen(false)
+  }
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button className={className}>Оставить отзыв</Button>
       </DialogTrigger>
@@ -30,7 +37,7 @@ export const ReviewLeaveModal = ({ movieId, className }: IProps) => {
             </Button>
           </DialogClose>
         </DialogHeader>
-        <ReviewLeaveForm movieId={movieId} />
+        <ReviewLeaveForm movieId={movieId} onLeavedReview={handleOnClose} />
       </DialogContent>
     </Dialog>
   )

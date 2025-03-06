@@ -15,7 +15,11 @@ export const ProfilePage = () => {
           <div className="space-y-2">
             <div className="relative w-36 h-36 rounded-lg border border-divider overflow-hidden">
               <Image
-                src={data.avatarUrl}
+                src={
+                  Boolean(data.avatarUrl)
+                    ? data.avatarUrl
+                    : '/default-avatar.jpg'
+                }
                 alt={data.name}
                 fill
                 className="object-cover"

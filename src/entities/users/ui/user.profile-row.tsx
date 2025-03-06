@@ -10,7 +10,7 @@ export const UserProfileRow = ({ user }: IProps) => {
     <div className="flex items-center space-x-2">
       <div className="relative w-9 h-9 rounded-full overflow-hidden border border-divider">
         <Image
-          src={user.avatarUrl}
+          src={Boolean(user.avatarUrl) ? user.avatarUrl : '/default-avatar.jpg'}
           alt={user.name}
           fill
           className="object-cover"

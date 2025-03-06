@@ -2,20 +2,23 @@
 
 import { useUserProfileQuery } from 'entities/users'
 import Link from 'next/link'
-import { PropsWithChildren } from 'react'
-import { Button, Sheet, SheetContent } from 'shared/ui/'
+import { PropsWithChildren, ReactNode } from 'react'
+import { Button, Sheet, SheetContent, SheetTitle } from 'shared/ui/'
 
 interface IProps extends PropsWithChildren {
   open: boolean
   onClose: VoidFunction
+  logoSlot?: ReactNode
 }
 
-export const MobileSheet = ({ open, onClose, children }: IProps) => {
+export const MobileSheet = ({ open, onClose, children, logoSlot }: IProps) => {
   const { data: user } = useUserProfileQuery()
 
   return (
     <Sheet open={open} onOpenChange={onClose}>
       <SheetContent className="p-0">
+        <SheetTitle className="hidden">Menu</SheetTitle>
+        {logoSlot}
         <div className="p-4 space-y-2">
           {user ? (
             <>

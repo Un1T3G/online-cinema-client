@@ -37,7 +37,7 @@ export const VideoUpload = ({ onChangeSrc, folderType, className }: IProps) => {
     const file = e.target.files![0]
 
     const formData = new FormData()
-    formData.append('video', file)
+    formData.append('image', file)
 
     setIsLoading(true)
     mutate({

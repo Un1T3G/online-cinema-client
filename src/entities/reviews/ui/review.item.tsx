@@ -15,7 +15,11 @@ export const ReviewItem = ({ review }: IProps) => {
         <div className="relative w-9 h-9 rounded-full overflow-hidden">
           <Image
             alt={review.user.name}
-            src={review.user.avatarUrl}
+            src={
+              Boolean(review.user.avatarUrl)
+                ? review.user.avatarUrl
+                : '/default-avatar.jpg'
+            }
             fill
             className="object-cover"
           />

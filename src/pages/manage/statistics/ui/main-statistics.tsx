@@ -36,7 +36,9 @@ export const MainStatistics = () => {
               <h2 className="text-lg font-bold">{title}</h2>
               {icon}
             </div>
-            <span className="text-2xl font-extrabold">{x.value}</span>
+            <span className="text-2xl font-extrabold">
+              {Number(x.value).toFixed(x.name === 'average_rating' ? 1 : 0)}
+            </span>
           </Card>
         )
       })}

@@ -5,10 +5,10 @@ export const movieUpdateFormSchema = z.object({
   slug: z.string().nonempty('Введите ссылку'),
   poster: z.string().nonempty('Введите постер'),
   bigPoster: z.string().nonempty('Введите большой постер'),
-  videoUrl: z.string().nonempty('Введите ссылку на видео'),
+  videoUrl: z.string(),
   country: z.string().nonempty('Введите страну'),
-  year: z.number(),
-  duration: z.number(),
+  year: z.coerce.number(),
+  duration: z.coerce.number(),
   genres: z.array(z.string()).nonempty('Выберите хотя бы один жанр'),
   actors: z.array(z.string()).nonempty('Выберите хотя бы одного актера'),
 })

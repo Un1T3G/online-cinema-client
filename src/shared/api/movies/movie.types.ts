@@ -30,4 +30,5 @@ export interface MovieResponse {
   actors: ActorResponse[]
   genres: GenreResponse[]
   createdAt: string
+  rating?: number
 }
