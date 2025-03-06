@@ -1,3 +1,4 @@
+import Autoplay from 'embla-carousel-autoplay'
 import { ActorItem } from 'entities/actors'
 
 import { ActorResponse } from 'shared/api'
@@ -9,7 +10,13 @@ interface IProps {
 
 export const ActorsList = ({ actors }: IProps) => {
   return (
-    <Carousel>
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}
+    >
       <CarouselContent>
         {actors.map((actor) => (
           <CarouselItem

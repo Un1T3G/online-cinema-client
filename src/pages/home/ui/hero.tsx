@@ -1,3 +1,4 @@
+import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MovieResponse } from 'shared/api'
@@ -16,7 +17,14 @@ interface IProps {
 
 export const Hero = ({ slides }: IProps) => {
   return (
-    <Carousel className="w-full rounded-lg overflow-hidden">
+    <Carousel
+      className="w-full rounded-lg overflow-hidden"
+      plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}
+    >
       <CarouselContent className="ml-0">
         {slides.map((movie) => (
           <CarouselItem
