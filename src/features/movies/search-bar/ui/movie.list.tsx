@@ -23,26 +23,30 @@ export const MoviesList = ({ movies, isLoading }: IProps) => {
     )
   }
 
-  return movies.map((movie) => (
-    <Link
-      key={movie.id}
-      href={`movie/${movie.slug}`}
-      className="flex space-x-2"
-    >
-      <div className="relative w-[60px] h-[80px] rounded-lg overflow-hidden border border-divider">
-        <Image
-          alt={movie.title}
-          src={movie.poster}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div>
-        <h1 className="text-lg text-white font-bold">{movie.title}</h1>
-        <span className="block text-sm text-foreground">
-          {movie.genres.map((genre) => genre.name).join(', ')}
-        </span>
-      </div>
-    </Link>
-  ))
+  return (
+    <div className="space-y-2">
+      {movies.map((movie) => (
+        <Link
+          key={movie.id}
+          href={`movie/${movie.slug}`}
+          className="flex space-x-2"
+        >
+          <div className="relative w-[60px] h-[80px] rounded-lg overflow-hidden border border-divider">
+            <Image
+              alt={movie.title}
+              src={movie.poster}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h1 className="text-lg text-white font-bold">{movie.title}</h1>
+            <span className="block text-sm text-foreground">
+              {movie.genres.map((genre) => genre.name).join(', ')}
+            </span>
+          </div>
+        </Link>
+      ))}
+    </div>
+  )
 }

@@ -21,8 +21,10 @@ export const MovieInfo = ({ movie }: IProps) => {
         className="object-cover z-0"
       />
       <div className="relative flex w-full h-full bg-fade-gradient z-[1] p-4">
-        <div className="flex-1 min-h-full flex flex-col justify-end">
-          <h1 className="text-6xl font-black mb-4">{movie.title}</h1>
+        <div className="flex-2 sm:flex-1 min-h-full flex flex-col justify-end">
+          <h1 className="text-5xl sm:text-6xl font-black mb-4">
+            {movie.title}
+          </h1>
           <span className="block text-muted-foreground mb-2">
             {[movie.year, movie.country, `${movie.duration} мин`].join(' • ')}
           </span>

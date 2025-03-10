@@ -16,7 +16,7 @@ export const MobileSheet = ({ open, onClose, children, logoSlot }: IProps) => {
 
   return (
     <Sheet open={open} onOpenChange={onClose}>
-      <SheetContent className="p-0">
+      <SheetContent className="p-0 overflow-y-auto">
         <SheetTitle className="hidden">Menu</SheetTitle>
         {logoSlot}
         <div className="p-4 space-y-2">

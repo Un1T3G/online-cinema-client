@@ -30,7 +30,7 @@ export const RootLayout = ({ children }: PropsWithChildren) => {
 
   const Sidebar = () => {
     return (
-      <aside className="fixed flex flex-col justify-between top-0 left-0 bottom-0 w-[256px] border-r border-divider">
+      <aside className="fixed flex flex-col justify-between top-0 left-0 bottom-0 w-[256px] border-r border-divider overflow-y-auto">
         <div>
           <Logo />
           <NavigationBar />

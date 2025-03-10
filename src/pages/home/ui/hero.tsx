@@ -18,14 +18,14 @@ interface IProps {
 export const Hero = ({ slides }: IProps) => {
   return (
     <Carousel
-      className="w-full rounded-lg overflow-hidden"
+      className="w-full rounded-lg overflow-hidden space-x-4"
       plugins={[
         Autoplay({
           delay: 3000,
         }),
       ]}
     >
-      <CarouselContent className="ml-0">
+      <CarouselContent className="ml-0 space-x-4">
         {slides.map((movie) => (
           <CarouselItem
             key={movie.id}
