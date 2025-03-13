@@ -39,8 +39,10 @@ export const Hero = ({ slides }: IProps) => {
             />
             <div className="relative z-[1] h-[350px] flex items-center pl-8 bg-fade-gradient">
               <div className="space-y-2">
-                <h1 className="font-extrabold text-6xl">{movie.title}</h1>
-                <span className="block text-foreground text-2xl">
+                <h1 className="font-extrabold text-5xl sm:text-6xl">
+                  {movie.title}
+                </h1>
+                <span className="block text-foreground text-base sm:text-2xl">
                   {movie.genres.map((genre) => genre.name).join(', ')}
                 </span>
                 <Button asChild>

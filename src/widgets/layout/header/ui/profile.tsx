@@ -1,6 +1,6 @@
 import { UserProfileRow, useUserProfileQuery } from 'entities/users'
 import { AuthLogoutButton } from 'features/auth'
-import { ChevronDown, User } from 'lucide-react'
+import { ChevronDown, User, UserCog } from 'lucide-react'
 import Link from 'next/link'
 import {
   Button,
@@ -54,8 +54,8 @@ export const Profile = () => {
               asChild
             >
               <Link href="/manage">
-                <User />
-                Админ
+                <UserCog />
+                Админка
               </Link>
             </Button>
           )}

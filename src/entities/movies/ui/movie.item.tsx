@@ -16,7 +16,7 @@ export const MovieItem = ({
 }: IProps) => {
   return (
     <Link
-      href={`movie/${movie.slug}`}
+      href={`/movie/${movie.slug}`}
       className={cn(
         'block relative h-[280px] rounded-lg overflow-hidden',
         className

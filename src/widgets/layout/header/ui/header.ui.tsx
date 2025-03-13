@@ -1,6 +1,6 @@
 import { useSessionStore } from 'entities/session'
 import { MoviesSearchBar } from 'features/movies'
-import { Menu } from 'lucide-react'
+import { LogIn, Menu } from 'lucide-react'
 import Link from 'next/link'
 import { NoSSR, useIsMobile } from 'shared/lib'
 import { Button } from 'shared/ui'
@@ -26,7 +26,10 @@ export const Header = ({ toggleMobileSheet }: IProps) => {
           <Profile />
         ) : (
           <Button asChild>
-            <Link href="/auth/login">Войти</Link>
+            <Link href="/auth/login">
+              <LogIn />
+              Войти
+            </Link>
           </Button>
         )}
       </NoSSR>

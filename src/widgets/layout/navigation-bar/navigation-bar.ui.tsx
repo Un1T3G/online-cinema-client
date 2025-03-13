@@ -8,12 +8,6 @@ import { getNavigationBarConfig } from './navigation-bar.lib'
 
 export const NavigationBar = () => {
   const { data: user } = useUserProfileQuery()
-  const {
-    data: genres,
-    isLoading: genresIsLoading,
-    isError: genresIsError,
-    error: genresError,
-  } = useGenresQuery()
   const router = useRouter()
 
   const showUserNavigation = Boolean(user)
@@ -25,6 +19,14 @@ export const NavigationBar = () => {
       ? 'admin'
       : 'user'
     : 'ghost'
+
+  const {
+    data: genres,
+    isLoading: genresIsLoading,
+    isError: genresIsError,
+    error: genresError,
+  } = useGenresQuery({}, navigationType !== 'admin')
+
   const navigationConfig = getNavigationBarConfig(navigationType)
 
   const Genres = () => {

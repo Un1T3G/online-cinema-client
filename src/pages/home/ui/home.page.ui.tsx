@@ -1,6 +1,7 @@
 import { ActorsList } from 'widgets/actors'
 import { MoviesList } from 'widgets/movies'
 import { HomePageProps } from '../home.page.types'
+import { AttentionBlock } from './attention-block'
 import { Hero } from './hero'
 
 export const HomePage = ({
@@ -10,6 +11,7 @@ export const HomePage = ({
 }: HomePageProps) => {
   return (
     <div className="space-y-4">
+      <AttentionBlock />
       <Hero slides={slides} />
       <div>
         <h1 className="text-xl font-bold mb-2">В тренде</h1>

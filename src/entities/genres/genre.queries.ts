@@ -5,10 +5,14 @@ import {
   genreService,
 } from 'shared/api'
 
-export const useGenresQuery = (query?: PaginatorWithSearchTermQuery) => {
+export const useGenresQuery = (
+  query?: PaginatorWithSearchTermQuery,
+  enabled: boolean = true
+) => {
   return useQuery({
     queryKey: ['genres', ...Object.values(query ?? {})],
     queryFn: () => genreService.getAll(query),
+    enabled,
   })
 }
 
