@@ -9,7 +9,8 @@ interface IProps {
 }
 
 export const Icons = ({ icon, className }: IProps) => {
-  const IconComponent = LucideIcons[icon] as JSX.ElementType
+  const IconComponent =
+    (LucideIcons[icon] as JSX.ElementType) || LucideIcons.AlertCircle
 
   return <IconComponent className={className} />
 }
