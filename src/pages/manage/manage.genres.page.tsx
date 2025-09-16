@@ -1,6 +1,7 @@
 import { useGenresQuery } from 'entities/genres'
 import { GenreCreateButton, GenreDeleteModal } from 'features/genres'
 import { EllipsisVertical, Pen, Search } from 'lucide-react'
+
 import Link from 'next/link'
 import { useState } from 'react'
 import { GenreResponse } from 'shared/api'
